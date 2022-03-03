@@ -12,7 +12,6 @@ RM := rm -rf
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -37,8 +36,8 @@ $(wildcard ../makefile.targets) \
 
 BUILD_ARTIFACT_NAME := telemetriaFrontal
 BUILD_ARTIFACT_EXTENSION := elf
-BUILD_ARTIFACT_PREFIX := 
-BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
@@ -61,8 +60,8 @@ all: main-build
 main-build: telemetriaFrontal.elf secondary-outputs
 
 # Tool invocations
-telemetriaFrontal.elf: $(OBJS) $(USER_OBJS) /home/caio/STM32CubeIDE/workspace_1.6.1/telemetriaFrontal/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "telemetriaFrontal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/caio/STM32CubeIDE/workspace_1.6.1/telemetriaFrontal/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="telemetriaFrontal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+telemetriaFrontal.elf: $(OBJS) $(USER_OBJS) /home/cheetah/Documents/tele/TelemetriaFrontal/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "telemetriaFrontal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/cheetah/Documents/tele/TelemetriaFrontal/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="telemetriaFrontal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -83,7 +82,7 @@ telemetriaFrontal.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS
 
 # Other Targets
 clean:
-	-$(RM) *
+	-$(RM) default.size.stdout telemetriaFrontal.bin telemetriaFrontal.elf telemetriaFrontal.list
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
@@ -95,7 +94,6 @@ fail-specified-linker-script-missing:
 warn-no-linker-script-specified:
 	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
 
-.PHONY: all clean dependents fail-specified-linker-script-missing warn-no-linker-script-specified
-.SECONDARY:
+.PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
 
 -include ../makefile.targets

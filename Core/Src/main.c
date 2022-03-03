@@ -16,6 +16,13 @@ uint8_t TxData[8];
 uint8_t TxData2[8];
 uint32_t mailbox;
 
+uint16_t tps1 = 0;
+uint16_t tps2 = 0;
+uint16_t pressao1 = 0;
+uint16_t pressao2 = 0;
+uint16_t pressao3 = 0;
+uint16_t encoder = 0;
+
 uint16_t readADC(uint32_t channel)
 {
 	sConfig.Channel = channel;
@@ -57,12 +64,12 @@ int main(void)
 	uint8_t inertia, bots, botao;
 	while (1)
 	{
-		uint16_t tps1 = readADC(ADC_CHANNEL_1);
-		uint16_t tps2 = readADC(ADC_CHANNEL_2);
-		uint16_t pressao1 = readADC(ADC_CHANNEL_3);
-		uint16_t pressao2 = readADC(ADC_CHANNEL_4);
-		uint16_t pressao3 = readADC(ADC_CHANNEL_5);
-		uint16_t encoder = readADC(ADC_CHANNEL_6);
+		tps1 = readADC(ADC_CHANNEL_1)*15;
+		//tps2 = readADC(ADC_CHANNEL_2);
+		pressao1 = readADC(ADC_CHANNEL_2)*15;
+		//pressao2 = readADC(ADC_CHANNEL_4);
+		//pressao3 = readADC(ADC_CHANNEL_5);
+		//encoder = readADC(ADC_CHANNEL_6);
 
 		bots = HAL_GPIO_ReadPin(GPIOB , GPIO_PIN_0);
 		botao = HAL_GPIO_ReadPin(GPIOB , GPIO_PIN_1);
@@ -72,7 +79,7 @@ int main(void)
 		TxData[2] = tps2 & 0x00FF;
 		TxData[3] = tps2 >> 8;
 		TxData[4] = pressao1 & 0x00FF;
-		TxData[3] = pressao1 >> 8;
+		TxData[5] = pressao1 >> 8;
 		TxData[6] = 0xEF;
 		TxData[7] = 0xEF;
 
