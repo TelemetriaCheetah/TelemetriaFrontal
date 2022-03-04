@@ -62,9 +62,10 @@ int main(void)
 	MX_CAN_Init();
 	//  MX_WWDG_Init();
 	uint8_t inertia, bots, botao;
+
 	while (1)
 	{
-		tps1 = readADC(ADC_CHANNEL_1)*15;
+		tps1 = readADC(ADC_CHANNEL_1);
 		//tps2 = readADC(ADC_CHANNEL_2);
 		pressao1 = readADC(ADC_CHANNEL_2)*15;
 		//pressao2 = readADC(ADC_CHANNEL_4);
@@ -80,7 +81,22 @@ int main(void)
 		TxData[3] = tps2 >> 8;
 		TxData[4] = pressao1 & 0x00FF;
 		TxData[5] = pressao1 >> 8;
-		TxData[6] = 0xEF;
+		if(bots)
+		{
+			TxData[6] |= 1 << 2;
+		}
+		else
+		{
+			TxData[6] &= ~(1 << 2);
+		}
+		if(tps1>=10)
+		{
+			TxData[6] |= 1 << 0;
+		}
+		else
+		{
+			TxData[6] &= ~(1 << 0);
+		}
 		TxData[7] = 0xEF;
 
 		TxData2[0] = inertia << 7 | bots << 6 | botao << 5;
