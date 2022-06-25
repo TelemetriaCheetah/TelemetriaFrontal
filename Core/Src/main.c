@@ -65,9 +65,9 @@ int main(void)
 
 	while (1)
 	{
-		tps1 = readADC(ADC_CHANNEL_1);
+		tps1 = readADC(ADC_CHANNEL_1)/10;
 		//tps2 = readADC(ADC_CHANNEL_2);
-		pressao1 = readADC(ADC_CHANNEL_2)*15;
+		pressao1 = readADC(ADC_CHANNEL_3)*15;
 		//pressao2 = readADC(ADC_CHANNEL_4);
 		//pressao3 = readADC(ADC_CHANNEL_5);
 		//encoder = readADC(ADC_CHANNEL_6);
