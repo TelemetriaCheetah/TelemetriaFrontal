@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
 ################################################################################
 
 -include ../makefile.init
@@ -43,14 +43,14 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 EXECUTABLES += \
 telemetriaFrontal.elf \
 
+MAP_FILES += \
+telemetriaFrontal.map \
+
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
 telemetriaFrontal.list \
-
-OBJCOPY_BIN += \
-telemetriaFrontal.bin \
 
 
 # All Target
@@ -60,8 +60,8 @@ all: main-build
 main-build: telemetriaFrontal.elf secondary-outputs
 
 # Tool invocations
-telemetriaFrontal.elf: $(OBJS) $(USER_OBJS) /home/cheetah/Documents/tele/TelemetriaFrontal/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "telemetriaFrontal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/cheetah/Documents/tele/TelemetriaFrontal/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="telemetriaFrontal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+telemetriaFrontal.elf telemetriaFrontal.map: $(OBJS) $(USER_OBJS) C:\Users\labtel-pc6\Documents\cheetah\TelemetriaFrontal\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "telemetriaFrontal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\labtel-pc6\Documents\cheetah\TelemetriaFrontal\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="telemetriaFrontal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -75,17 +75,12 @@ telemetriaFrontal.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEP
 	@echo 'Finished building: $@'
 	@echo ' '
 
-telemetriaFrontal.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "telemetriaFrontal.bin"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) default.size.stdout telemetriaFrontal.bin telemetriaFrontal.elf telemetriaFrontal.list
+	-$(RM) default.size.stdout telemetriaFrontal.elf telemetriaFrontal.list telemetriaFrontal.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
