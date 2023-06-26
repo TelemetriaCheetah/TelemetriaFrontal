@@ -60,8 +60,8 @@ all: main-build
 main-build: telemetriaFrontal.elf secondary-outputs
 
 # Tool invocations
-telemetriaFrontal.elf telemetriaFrontal.map: $(OBJS) $(USER_OBJS) C:\Users\labtel-pc6\Documents\cheetah\TelemetriaFrontal\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "telemetriaFrontal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\labtel-pc6\Documents\cheetah\TelemetriaFrontal\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="telemetriaFrontal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+telemetriaFrontal.elf telemetriaFrontal.map: $(OBJS) $(USER_OBJS) C:\Users\labtel-pc6\STM32CubeIDE\workspace_1.9.0\telemetriaFrontal\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "telemetriaFrontal.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\labtel-pc6\STM32CubeIDE\workspace_1.9.0\telemetriaFrontal\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="telemetriaFrontal.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

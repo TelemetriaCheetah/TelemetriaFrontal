@@ -16,16 +16,14 @@
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.startuptab.haltonexception" value="true"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.swd_mode" value="true"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.swv_port" value="3344"/>
-    <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.swv_trace_div" value="8"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.swv_trace_hclk" value="16000000"/>
-    <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.swv_wait_for_sync" value="true"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.useRemoteTarget" value="true"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.vector_table" value=""/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.CTI_ALLOW_HALT" value="false"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.CTI_SIGNAL_HALT" value="false"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.DBG_DEVICE_SHAREABLE_ALLOWED" value="false"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.DBG_INTERFACE" value="Swd"/>
-    <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.DBG_INTERFACE_FREQUENCY" value="4000000.0"/>
+    <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.DBG_INTERFACE_FREQUENCY" value="8000000.0"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.DBG_LOW_POWER_MODE_ALLOWED" value="true"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.DBG_RESET_MODE" value="soft"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.DBG_STOP_WATCHDOG_THEN_HALTED_ALLOWED" value="true"/>
@@ -46,13 +44,14 @@
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.external_loader_init" value="false"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.frequency" value="0"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.halt_all_on_reset" value="false"/>
-    <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.log_file" value="/home/caio/STM32CubeIDE/workspace_1.6.1/telemetriaFrontal/Debug/st-link_gdbserver_log.txt"/>
+    <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.log_file" value="C:\Users\labtel-pc6\STM32CubeIDE\workspace_1.9.0\telemetriaFrontal\Debug\st-link_gdbserver_log.txt"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.low_power_debug" value="enable"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.max_halt_delay" value="2"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.reset_strategy" value="connect_under_reset"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.stlink_check_serial_number" value="false"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.stlink_txt_serial_number" value=""/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.watchdog_config" value="none"/>
+    <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlinkenable_rtos" value="false"/>
     <booleanAttribute key="com.st.stm32cube.ide.mcu.rtosproxy.enableRtosProxy" value="false"/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.rtosproxy.rtosProxyCustomProperties" value=""/>
     <stringAttribute key="com.st.stm32cube.ide.mcu.rtosproxy.rtosProxyDriver" value="threadx"/>
@@ -63,7 +62,6 @@
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doReset" value="false"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.ipAddress" value="localhost"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.jtagDevice" value="ST-LINK (OpenOCD)"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.jtagDeviceId" value="com.st.stm32cube.ide.mcu.debug.openocd"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value=""/>
     <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="3333"/>
@@ -83,7 +81,7 @@
     <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/telemetriaFrontal.elf"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="telemetriaFrontal"/>
     <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.493202951"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1106070653"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
         <listEntry value="/telemetriaFrontal"/>
     </listAttribute>
